@@ -16,8 +16,8 @@ const[isMenuOpen, setIsMenuOpen] = useState(false)
         gap:"48px",
         alignItems:"center",
         width:"100%",
-        fontWeight: 700,
-        color:"#562802 "
+        fontWeight: "700 !important",
+        color:"#ebb9be"
 
     }))
 
@@ -34,7 +34,7 @@ const[isMenuOpen, setIsMenuOpen] = useState(false)
 
 
     return(
-        <AppBar position='absolute'> 
+        <AppBar position='fixed'> 
             <StyledToolbar>
                 {! isMobile &&(
                     <>
