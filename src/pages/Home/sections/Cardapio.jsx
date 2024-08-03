@@ -1,4 +1,5 @@
-import { Container, Grid, styled, Button, Icon } from "@mui/material";
+import { Container, Grid, styled, Button } from "@mui/material";
+import { Element } from 'react-scroll';
 import Boloum from "../../../assets/img/boloum.jpg";
 import Bolodois from "../../../assets/img/bolodois.jpg";
 import Bolotres from "../../../assets/img/bolotres.jpg";
@@ -9,26 +10,26 @@ import Bolosete from "../../../assets/img/bolosete.jpg";
 import Bolooito from "../../../assets/img/bolooito.jpg";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-
 const StyledCardapio = styled("div")(({ theme }) => ({
   backgroundColor: "#F5DDDF",
   height: "auto",
   minHeight: "100vh",
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
-  paddingTop: "150px",
+  paddingTop: "170px", // Ajuste para incluir o h1
   [theme.breakpoints.up("xs")]: {
-    paddingTop: "150px",
+    paddingTop: "50px", // Ajuste para incluir o h1
   },
   [theme.breakpoints.up("sm")]: {
-    paddingTop: "250px",
+    paddingTop: "100px", // Ajuste para incluir o h1
   },
   [theme.breakpoints.up("md")]: {
-    paddingTop: "0",
+    paddingTop: "70px", // Ajuste para incluir o h1
   },
 }));
 
-const StyledBox = styled("div")(({ imageUrl }) => ({
+const StyledBox = styled("div")(() => ({
   backgroundColor: "#f5bfc3",
   textAlign: "center",
   borderRadius: "8px",
@@ -75,7 +76,7 @@ const PriceText = styled("div")(() => ({
   marginRight: "auto",
 }));
 
-const CustomButton = styled(Button)(({ theme }) => ({
+const CustomButton = styled(Button)(() => ({
   padding: '6px 12px',
   fontSize: '12px',
   paddingRight:"3px"
@@ -94,31 +95,31 @@ const Cardapio = () => {
   ];
 
   return (
-    <StyledCardapio>
-      <Container maxWidth="lg">
-        <Grid container spacing={3} mb={4}>
-          {pratos.map((prato) => (
-            <Grid item xs={12} sm={6} md={3} key={prato.id}>
-              <StyledBox>
-                <ImageContainer imageUrl={prato.imageUrl} />
-                <Description>
-                  <div style={{ fontSize: "14px", fontWeight: "bold" }}>{prato.name}</div>
-                </Description>
-                <PriceContainer>
-                  <PriceText>{prato.price}</PriceText>
-                  <CustomButton variant="contained" color="primary" size="small" startIcon={<ShoppingCartIcon />}>
-                    
-                  </CustomButton>
-                </PriceContainer>
-              </StyledBox>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </StyledCardapio>
+    <Element name="cardapio">
+      <StyledCardapio>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Cardápio</h1>
+        <Container maxWidth="lg">
+          <Grid container spacing={3} mb={4}>
+            {pratos.map((prato) => (
+              <Grid item xs={12} sm={6} md={3} key={prato.id}>
+                <StyledBox>
+                  <ImageContainer imageUrl={prato.imageUrl} />
+                  <Description>
+                    <div style={{ fontSize: "14px", fontWeight: "bold" }}>{prato.name}</div>
+                  </Description>
+                  <PriceContainer>
+                    <PriceText>{prato.price}</PriceText>
+                    <CustomButton variant="contained" color="primary" size="small" startIcon={<ShoppingCartIcon />}>
+                    </CustomButton>
+                  </PriceContainer>
+                </StyledBox>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </StyledCardapio>
+    </Element>
   );
 };
 
 export default Cardapio;
-
-
