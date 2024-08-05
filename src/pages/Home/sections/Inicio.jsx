@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import WebFont from "webfontloader";
 import { Box, Container, Grid, styled, Typography } from "@mui/material";
 import Bolo from "../../../assets/img/fotobolo.png";
@@ -11,6 +11,7 @@ const StyledInicio = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   paddingTop: "150px",
+  
   [theme.breakpoints.up("xs")]: {
     paddingTop: "150px",
   },
@@ -20,22 +21,28 @@ const StyledInicio = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     paddingTop: "0",
   },
+  [theme.breakpoints.down("md")]: {
+    textAlign:"center",
+  },
 }));
 
 const StyledImg = styled("img")(({ theme }) => ({
   width: "100%",
   alignItems: "right",
-  [theme.breakpoints.up("sm")]: {
+
+  [theme.breakpoints.down("md")]: {
+    display: "none",
     width: "50%",
+
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up("lg")]: {
     width: "75%",
   },
 }));
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   fontFamily: "'Dancing Script', cursive",
-  fontSize: "5rem !important", // Aumente o tamanho conforme necessário
+  fontSize: "5rem !important",
   [theme.breakpoints.up("sm")]: {
     fontSize: "1.5rem",
   },
@@ -43,9 +50,26 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 
 const HighlightTypography = styled("span")(() => ({
   color: "#FF6347",
+  fontWeight: 700,
+}));
+
+const BotaoContainer = styled(Box)(({theme}) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  gap: "10px",
+  paddingTop:"30px",
+  
+  [theme.breakpoints.up("xs")]: {
+   marginLeft:"50px",
+  },
+  
 }));
 
 const Inicio = () => {
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     WebFont.load({
       google: {
@@ -53,6 +77,14 @@ const Inicio = () => {
       },
     });
   }, []);
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText("(99)999999999");
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
 
   return (
     <StyledInicio>
@@ -69,14 +101,15 @@ const Inicio = () => {
               <Typography variant="body1" component="p" mt="20px" fontSize="1.25rem">
                 Somos uma confeitaria especializada em bolos deliciosos e fazemos entregas diretamente para sua casa.
               </Typography>
-              <Box pt="50px">
-                    <StyledButton>
-                        Fazer pedido
-                    </StyledButton>
-                    <StyledButton>
-                        (99)999999999
-                    </StyledButton>
-              </Box>
+              <BotaoContainer>
+                <StyledButton>
+                  Fazer pedido
+                </StyledButton>
+                <StyledButton onClick={handleCopyNumber}>
+                  (99)999999999
+                </StyledButton>
+                {copied && <Typography variant="body2" color="success" >Número copiado!</Typography>}
+              </BotaoContainer>
             </Box>
           </Grid>
           <Grid item xs={12} md={7}>
@@ -91,4 +124,10 @@ const Inicio = () => {
 };
 
 export default Inicio;
+
+
+
+
+
+
 

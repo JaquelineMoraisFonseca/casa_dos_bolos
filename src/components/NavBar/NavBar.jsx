@@ -60,8 +60,8 @@ const[isMenuOpen, setIsMenuOpen] = useState(false)
                 )}
                 {isMobile && (
                     <Box sx={{marginLeft:"auto"}}>
-                        <Menu right isOpen={isMenuOpen} onStateChange={handleMenuStateChange} onClik={closeMenu}>
-                            <Link className="menu-item" to="inicio" smooth={true} duration={500} onClik={closeMenu}>
+                        <Menu right isOpen={isMenuOpen} onStateChange={handleMenuStateChange} onClick={closeMenu}>
+                            <Link className="menu-item" to="inicio" smooth={true} duration={500} onClick={closeMenu}>
                                 Início
                             </Link>
                             <Link className="menu-item" to="cardapio" smooth={true} duration={500} onClick={closeMenu}>
