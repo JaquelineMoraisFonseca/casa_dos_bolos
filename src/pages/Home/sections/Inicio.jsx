@@ -103,7 +103,7 @@ const Inicio = () => {
               </Typography>
               <BotaoContainer>
                 <StyledButton>
-                  Fazer pedido
+                  @casabolosfc
                 </StyledButton>
                 <StyledButton onClick={handleCopyNumber}>
                   (99)999999999

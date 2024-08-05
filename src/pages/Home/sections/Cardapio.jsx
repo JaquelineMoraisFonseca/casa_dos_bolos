@@ -1,5 +1,9 @@
+
 import { Container, Grid, styled, Button } from "@mui/material";
 import { Element } from 'react-scroll';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../../components/cartSlice';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Boloum from "../../../assets/img/boloum.jpg";
 import Bolodois from "../../../assets/img/bolodois.jpg";
 import Bolotres from "../../../assets/img/bolotres.jpg";
@@ -8,7 +12,6 @@ import Bolocinco from "../../../assets/img/bolocinco.jpg";
 import Boloseis from "../../../assets/img/boloseis.jpg";
 import Bolosete from "../../../assets/img/bolosete.jpg";
 import Bolooito from "../../../assets/img/bolooito.jpg";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const StyledCardapio = styled("div")(({ theme }) => ({
   backgroundColor: "#F5DDDF",
@@ -83,6 +86,8 @@ const CustomButton = styled(Button)(() => ({
 }));
 
 const Cardapio = () => {
+  const dispatch = useDispatch();
+
   const pratos = [
     { id: 1, name: "Bolo Chocolate com morangos", imageUrl: Boloum, price: "R$100,00" },
     { id: 2, name: "Bolo de Creme", imageUrl: Bolodois, price: "R$120,00" },
@@ -93,6 +98,10 @@ const Cardapio = () => {
     { id: 7, name: "Bolo de Pistache", imageUrl: Bolosete, price: "R$110,00" },
     { id: 8, name: "Brownie recheado", imageUrl: Bolooito, price: "R$130,00" },
   ];
+
+  const handleAddToCart = (prato) => {
+    dispatch(addItem(prato));
+  };
 
   return (
     <Element name="cardapio">
@@ -109,7 +118,14 @@ const Cardapio = () => {
                   </Description>
                   <PriceContainer>
                     <PriceText>{prato.price}</PriceText>
-                    <CustomButton variant="contained" color="primary" size="small" startIcon={<ShoppingCartIcon />}>
+                    <CustomButton 
+                      variant="contained" 
+                      color="primary" 
+                      size="small" 
+                      startIcon={<ShoppingCartIcon />} 
+                      onClick={() => handleAddToCart(prato)}
+                    >
+                      Adicionar
                     </CustomButton>
                   </PriceContainer>
                 </StyledBox>
@@ -123,3 +139,8 @@ const Cardapio = () => {
 };
 
 export default Cardapio;
+
+
+
+
+

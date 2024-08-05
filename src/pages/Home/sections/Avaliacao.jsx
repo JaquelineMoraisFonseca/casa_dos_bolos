@@ -1,9 +1,9 @@
-
 import { Box, Container, Grid, styled, Typography } from "@mui/material";
-import Confeiteira from "../../../assets/img/confeiteirafundo.png";
+import Confeiteira from "../../../assets/img/confeiteira.png";
 import Personagemum from "../../../assets/img/personagemum.jpg";
 import Personagemdois from "../../../assets/img/personagemdois.jpg";
 import Personagemtres from "../../../assets/img/personagemtres.jpg";
+import StarIcon from '@mui/icons-material/Star';
 
 const StyledInicio = styled("div")(({ theme }) => ({
   backgroundColor: "#F5DDDF",
@@ -14,22 +14,23 @@ const StyledInicio = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     paddingTop: "250px",
   },
-  [theme.breakpoints.up("md")]: {
-    paddingTop: "0",
+  [theme.breakpoints.down("md")]: {
+    paddingTop: "5px",
   },
 }));
 
 const StyledImg = styled("img")(({ theme }) => ({
   width: "100%",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.down("md")]: {
+    display: "none",
     width: "50%",
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up("lg")]: {
     width: "75%",
   },
 }));
 
-const TestimonialCard = styled(Box)(() => ({
+const TestimonialCard = styled(Box)(({ theme }) => ({
   backgroundColor: "white",
   borderRadius: "8px",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -37,23 +38,43 @@ const TestimonialCard = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
   marginBottom: "20px",
+  flexDirection: "column", 
+  [theme.breakpoints.up("sm")]: {
+    flexDirection: "row", 
+  },
 }));
 
-const Avatar = styled("img")(() => ({
+const Avatar = styled("img")(({theme}) => ({
   width: "50px",
   height: "50px",
   borderRadius: "50%",
   marginRight: "15px",
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: "10px", 
+    marginRight: "0", 
+  },
 }));
 
-const TestimonialContent = styled(Box)(() => ({
+const TestimonialContent = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
+  [theme.breakpoints.up("sm")]: {
+    alignItems: "flex-start",
+  },
 }));
 
-const StyledTypography = styled(Typography)(() => ({
+const StyledTypography = styled(Typography)(({ theme }) => ({
   color: "#444",
+  display: "flex",
+  flexDirection: "column", 
+  [theme.breakpoints.up("sm")]: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
 }));
+
+const estrelas = Array(5).fill(null);
 
 const Avaliacao = () => {
   return (
@@ -77,16 +98,30 @@ const Avaliacao = () => {
                 <TestimonialCard>
                   <Avatar src={Personagemum} />
                   <TestimonialContent>
-                    <StyledTypography variant="h6">Maria Oliveira</StyledTypography>
+                    <StyledTypography variant="h6">
+                      Maria Oliveira
+                      <Box display="flex" flexDirection="row">
+                        {estrelas.map((_, index) => (
+                          <StarIcon key={index} style={{ color: "#b08f2a" }} />
+                        ))}
+                      </Box>
+                    </StyledTypography>
                     <StyledTypography variant="body2">
-                    Sou apaixonada pelos bolos que vocês fazem. Sempre frescos, bem decorados e deliciosos. É o lugar perfeito para encomendar doces para qualquer ocasião
+                      Sou apaixonada pelos bolos que vocês fazem. Sempre frescos, bem decorados e deliciosos. É o lugar perfeito para encomendar doces para qualquer ocasião.
                     </StyledTypography>
                   </TestimonialContent>
                 </TestimonialCard>
                 <TestimonialCard>
                   <Avatar src={Personagemdois} />
                   <TestimonialContent>
-                    <StyledTypography variant="h6">Ana Costa</StyledTypography>
+                    <StyledTypography variant="h6">
+                      Ana Costa
+                      <Box display="flex" flexDirection="row">
+                        {estrelas.map((_, index) => (
+                          <StarIcon key={index} style={{ color: "#b08f2a" }} />
+                        ))}
+                      </Box>
+                    </StyledTypography>
                     <StyledTypography variant="body2">
                       A qualidade dos produtos e o cuidado no preparo são evidentes em cada mordida. Cada vez que visito, saio com um sorriso no rosto. Parabéns pelo excelente trabalho!
                     </StyledTypography>
@@ -95,9 +130,16 @@ const Avaliacao = () => {
                 <TestimonialCard>
                   <Avatar src={Personagemtres} />
                   <TestimonialContent>
-                    <StyledTypography variant="h6">Fulana de Tal</StyledTypography>
+                    <StyledTypography variant="h6">
+                      João Silva
+                      <Box display="flex" flexDirection="row">
+                        {estrelas.map((_, index) => (
+                          <StarIcon key={index} style={{ color: "#b08f2a" }} />
+                        ))}
+                      </Box>
+                    </StyledTypography>
                     <StyledTypography variant="body2">
-                      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat voluptatibus cumque dolor ea est quae alias necessitatibus"
+                      As sobremesas da sua confeitaria são simplesmente divinas! A combinação de sabores é única, e o atendimento sempre impecável. Recomendo a todos!
                     </StyledTypography>
                   </TestimonialContent>
                 </TestimonialCard>
