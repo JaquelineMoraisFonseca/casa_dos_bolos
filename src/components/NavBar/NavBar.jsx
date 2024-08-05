@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppBar, MenuItem, Toolbar, styled, useMediaQuery, useTheme, Box, IconButton, Drawer, Badge } from '@mui/material';
 import { slide as Menu } from 'react-burger-menu';
 import { Link } from 'react-scroll';
