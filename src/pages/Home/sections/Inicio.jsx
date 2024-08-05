@@ -3,6 +3,7 @@ import WebFont from "webfontloader";
 import { Box, Container, Grid, styled, Typography } from "@mui/material";
 import Bolo from "../../../assets/img/fotobolo.png";
 import StyledButton from '../../../components/StyledButton';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const StyledInicio = styled("div")(({ theme }) => ({
   backgroundColor: "#F5DDDF",
@@ -16,13 +17,11 @@ const StyledInicio = styled("div")(({ theme }) => ({
     paddingTop: "150px",
   },
   [theme.breakpoints.up("sm")]: {
-    paddingTop: "250px",
-  },
-  [theme.breakpoints.up("md")]: {
-    paddingTop: "0",
+    paddingTop: "150px",
   },
   [theme.breakpoints.down("md")]: {
     textAlign:"center",
+    paddingTop:"50px"
   },
 }));
 
@@ -103,7 +102,7 @@ const Inicio = () => {
               </Typography>
               <BotaoContainer>
                 <StyledButton>
-                  @casabolosfc
+                 <InstagramIcon/>  @bolosfictício
                 </StyledButton>
                 <StyledButton onClick={handleCopyNumber}>
                   (99)999999999

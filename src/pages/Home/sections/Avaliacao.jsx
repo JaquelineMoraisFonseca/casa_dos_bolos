@@ -17,6 +17,9 @@ const StyledInicio = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     paddingTop: "5px",
   },
+  [theme.breakpoints.up("md")]: {
+    paddingTop: "80px",
+  },
 }));
 
 const StyledImg = styled("img")(({ theme }) => ({

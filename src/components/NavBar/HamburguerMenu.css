@@ -1,61 +1,54 @@
 .bm-burger-button {
-    position: absolute;
-    width: 36px;
-    height: 30px;
-    right: 20px;
-    top: 15px;
-  }
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 36px;
   
-  .bm-burger-bars {
-    background: #373a47;
-  }
+}
+
+.bm-burger-bars {
+  background: #a1575e;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu {
+  background-color:  #a1575e;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+
+}
+
+.bm-item {
+  display: inline-block;
+  color: #d1d1d1;
+  margin-bottom: 10px;
+  border: 1px solid #d1d1d1;
+  padding: 5px;
+  text-align: center;
   
-  .bm-burger-bars-hover {
-    background: #a90000;
-  }
-  
-  .bm-cross-button {
-    height: 24px;
-    width: 24px;
-  }
-  
-  .bm-cross {
-    background: #bdc3c7;
-  }
-  
-  .bm-menu {
-    background-color:#0a22ff;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-    border-radius: 10px;
-    border: 1px solid #ec0735;
-  }
-  
-  .bm-morph-shape {
-    fill: #373a47;
-  }
-  
-  .bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em;
-    
-  }
-  
-  .bm-item {
-    display: inline-block;
-    color: #d1d1d1;
-    margin-bottom: 10px;
-    text-decoration: none;
-    transition: color 0.2s;
-    border: 1px solid #272931;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .bm-item:hover {
-    color: white;
-  }
-  
-  .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
-  }
+}
+.bm-item:hover{
+  background-color: #794046 ;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
